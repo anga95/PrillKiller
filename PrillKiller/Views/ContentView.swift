@@ -11,16 +11,16 @@ struct ContentView: View {
     @State private var stoppedToSnus: Date = Date()
     
     @State private var showSettings = false
+    @State private var showResetConfirmation = false
     @State private var timer: Timer?
 
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
                 if let situation = snusSituations.first {
-                    // Hämta tidskomponenterna
                     let time = situation.timeComponents()
                     
-                    // Använd TimeComponentsView för att visa tidskomponenterna
+                    // Visa tidskomponenterna med TimeComponentsView
                     TimeComponentsView(
                         years: time.years,
                         months: time.months,
@@ -28,6 +28,7 @@ struct ContentView: View {
                         hours: time.hours,
                         minutes: time.minutes
                     )
+                    .foregroundColor(.white)  // Vit text på svart bakgrund
 
                     Form {
                         SnusDataView(
@@ -35,13 +36,17 @@ struct ContentView: View {
                             prillorPerDosa: situation.prillorPerDosa,
                             dosaPris: situation.dosaPris
                         )
+                        .foregroundColor(.white)
                         
                         SavedDataView(
                             savedPrillor: situation.savedPrillor(),
                             savedDosor: situation.savedDosor(),
                             savedMoney: situation.savedMoney()
                         )
+                        .foregroundColor(.white)
                     }
+                    .scrollContentBackground(.hidden)  // Döljer bakgrundsfärgen för formdelen
+                    .background(Color.black)  // Svart bakgrund på formuläret
 
                     Button("Ställ in snusdata") {
                         showSettings = true
@@ -59,18 +64,27 @@ struct ContentView: View {
                     }
 
                     Button("Nollställ databasen") {
-                        resetDatabase()
+                        showResetConfirmation = true  // Visa varningsdialog
                     }
                     .foregroundColor(.red)
-
+                    .confirmationDialog("Är du säker på att du vill nollställa databasen?", isPresented: $showResetConfirmation) {
+                        Button("Nollställ", role: .destructive) {
+                            resetDatabase()
+                        }
+                        Button("Avbryt", role: .cancel) {}
+                    }
+                    
                 } else {
                     Text("Ange din snusinformation")
+                        .foregroundColor(.white)
                     Button(action: addSnusSituation) {
                         Label("Lägg till snusdata", systemImage: "plus")
                     }
+                    .foregroundColor(.white)
                 }
             }
             .padding()
+            .background(Color.black)  // Svart bakgrund över hela skärmen
             .onAppear {
                 startTimer()
             }
