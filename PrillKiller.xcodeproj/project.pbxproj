@@ -30,7 +30,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		E13FD40B2CB45676006069A4 /* Exceptions for "PrillKiller" folder in "PrillKiller" target */ = {
+		E13FD40B2CB45676006069A4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -40,24 +40,9 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		E13FD3E72CB45674006069A4 /* PrillKiller */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				E13FD40B2CB45676006069A4 /* Exceptions for "PrillKiller" folder in "PrillKiller" target */,
-			);
-			path = PrillKiller;
-			sourceTree = "<group>";
-		};
-		E13FD3FC2CB45676006069A4 /* PrillKillerTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = PrillKillerTests;
-			sourceTree = "<group>";
-		};
-		E13FD4062CB45676006069A4 /* PrillKillerUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = PrillKillerUITests;
-			sourceTree = "<group>";
-		};
+		E13FD3E72CB45674006069A4 /* PrillKiller */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (E13FD40B2CB45676006069A4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = PrillKiller; sourceTree = "<group>"; };
+		E13FD3FC2CB45676006069A4 /* PrillKillerTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = PrillKillerTests; sourceTree = "<group>"; };
+		E13FD4062CB45676006069A4 /* PrillKillerUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = PrillKillerUITests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +185,7 @@
 				};
 			};
 			buildConfigurationList = E13FD3E02CB45674006069A4 /* Build configuration list for PBXProject "PrillKiller" */;
+			compatibilityVersion = "Xcode 15.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -208,7 +194,6 @@
 			);
 			mainGroup = E13FD3DC2CB45674006069A4;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = E13FD3E62CB45674006069A4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
